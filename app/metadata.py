@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 
 class MetadataExtractor:
     def __init__(self, ollama_base_url: str = None):
-        self.ollama_base_url = ollama_base_url or os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
+        self.ollama_base_url = ollama_base_url or os.getenv("OLLAMA_BASE_URL", "http://172.19.96.1:11434")
         
     def is_ollama_available(self) -> bool:
         """Ollama 서비스 가용성을 확인합니다."""
@@ -21,7 +21,7 @@ class MetadataExtractor:
             logger.warning(f"Ollama 서비스 확인 실패: {e}")
             return False
     
-    def extract_with_llm(self, text: str, model: str = "llama3.2") -> Optional[Dict]:
+    def extract_with_llm(self, text: str, model: str = "llama3.1:latest") -> Optional[Dict]:
         """LLM을 사용하여 메타데이터를 추출합니다."""
         if not self.is_ollama_available():
             logger.error("Ollama 서비스를 사용할 수 없습니다.")

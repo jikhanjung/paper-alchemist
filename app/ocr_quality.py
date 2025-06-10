@@ -8,7 +8,7 @@ logger = logging.getLogger(__name__)
 
 class OllamaClient:
     def __init__(self, base_url: str = None):
-        self.base_url = base_url or os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
+        self.base_url = base_url or os.getenv("OLLAMA_BASE_URL", "http://172.19.96.1:11434")
         
     def is_available(self) -> bool:
         """Ollama 서비스가 사용 가능한지 확인합니다."""
